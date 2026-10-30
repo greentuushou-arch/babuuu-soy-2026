@@ -106,8 +106,7 @@ a{color:inherit;text-decoration:none}
 .ballot .ln.b{top:118px}
 .ballot .msg{position:absolute;left:20px;font-size:15px;font-weight:700;line-height:24px;letter-spacing:0;white-space:nowrap;clip-path:inset(0 100% 0 0)}
 .ballot .msg.a{top:52px;color:var(--blue);animation:writeA 5s linear infinite}
-.ballot .msg.b{top:92px;color:var(--pink);animation:writeB 5s linear infinite}
-/* えんぴつ：先端(10,104)を文字の右端に沿わせて動かす */
+/* えんぴつ：先端(10,104)を文字の右端に沿わせて動かす（「応援してます！」15px×7字＝105px） */
 .pencil{position:absolute;left:0;top:0;width:20px;height:110px;transform-origin:10px 104px;opacity:0;animation:pencil 5s linear infinite;filter:drop-shadow(2px 4px 4px rgba(0,0,0,.18))}
 .stamp{position:absolute;left:176px;top:-26px;width:104px;height:104px;border-radius:50%;border:4px solid var(--pink);color:var(--pink);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;background:rgba(255,255,255,.7);opacity:0;animation:stamp 5s cubic-bezier(.3,.6,.4,1) infinite}
 .stamp::before{content:"";position:absolute;inset:4px;border-radius:50%;border:1.5px solid var(--pink)}
@@ -117,15 +116,12 @@ a{color:inherit;text-decoration:none}
 .pops{position:absolute;left:228px;top:26px;width:0;height:0;z-index:3}
 .pops i{position:absolute;left:0;top:0;width:var(--sz,22px);height:var(--sz,22px);margin:calc(var(--sz,22px) / -2) 0 0 calc(var(--sz,22px) / -2);background:var(--img) center/contain no-repeat;opacity:0;animation:pop 5s linear infinite}
 @keyframes card{0%{opacity:0;transform:translateY(12px)}6%,49%{opacity:1;transform:translateY(0) scale(1)}51%{transform:scale(.97,.95)}55%{transform:scale(1)}90%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(1)}}
-@keyframes writeA{0%,11%{clip-path:inset(0 100% 0 0)}20%,100%{clip-path:inset(0 0 0 0)}}
-@keyframes writeB{0%,23%{clip-path:inset(0 100% 0 0)}38%,100%{clip-path:inset(0 0 0 0)}}
+@keyframes writeA{0%,11%{clip-path:inset(0 100% 0 0)}30%,100%{clip-path:inset(0 0 0 0)}}
 @keyframes pencil{
   0%,6%{opacity:0;transform:translate(140px,-144px) rotate(32deg)}
   11%{opacity:1;transform:translate(10px,-32px) rotate(32deg)}
-  20%{transform:translate(115px,-32px) rotate(32deg)}
-  23%{transform:translate(10px,8px) rotate(32deg)}
-  38%{transform:translate(205px,8px) rotate(32deg);opacity:1}
-  44%,100%{opacity:0;transform:translate(190px,-84px) rotate(32deg)}
+  30%{transform:translate(115px,-32px) rotate(32deg);opacity:1}
+  38%,100%{opacity:0;transform:translate(190px,-84px) rotate(32deg)}
 }
 @keyframes stamp{0%,43%{opacity:0;transform:translateY(-80px) scale(1.6)}50%{opacity:1;transform:translateY(0) scale(.93)}53%{transform:scale(1.03)}57%{transform:scale(1)}90%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(1)}}
 @keyframes pop{0%,49%{opacity:0;transform:translate(0,0) scale(.3);animation-timing-function:cubic-bezier(.1,.8,.25,1)}51%{opacity:1}76%{opacity:1;animation-timing-function:linear}90%,100%{opacity:0;transform:translate(var(--bx),var(--by)) scale(1) rotate(var(--br))}}
@@ -310,7 +306,6 @@ a{color:inherit;text-decoration:none}
         <p class="to">babuuu.への応援メッセージ</p>
         <span class="ln a"></span><span class="ln b"></span>
         <p class="msg a">応援してます！</p>
-        <p class="msg b">もっと品数増やしてほしい！</p>
         <svg class="pencil" viewBox="0 0 20 110"><rect x="0" y="0" width="20" height="14" rx="3" fill="#FF4C86"/><rect x="0" y="14" width="20" height="4" fill="#d9d4cc"/><rect x="0" y="18" width="20" height="62" fill="#FFC300"/><rect x="7" y="18" width="6" height="62" fill="#ffd54d"/><polygon points="0,80 20,80 10,104" fill="#f1d9b5"/><polygon points="6.5,96 13.5,96 10,104" fill="#181613"/></svg>
         <div class="stamp"><i>♥</i><b>THANK<br>YOU</b><small>babuuu.</small></div>
         <div class="pops" data-pops="7"></div>
