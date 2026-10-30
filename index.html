@@ -65,6 +65,10 @@ a{color:inherit;text-decoration:none}
 .blob.b{width:260px;height:260px;background:var(--blue-l);top:300px;right:-110px;animation-delay:-5s}
 .blob.p{width:180px;height:180px;background:var(--pink-l);top:720px;left:-60px;animation-delay:-9s}
 @keyframes float{to{transform:translate(24px,30px) scale(1.08)}}
+/* クラッカーの紙吹雪（JSで左右の端からパーンと打ち上げる） */
+.party{position:absolute;inset:0;z-index:3;pointer-events:none;overflow:hidden}
+.party i{position:absolute;left:0;top:0;border-radius:2px;will-change:transform,opacity}
+.party i.c{border-radius:50%}
 .fv-head{position:relative;z-index:2;text-align:center;padding:0 12px}
 .emb{font-family:var(--en);font-weight:400;font-size:clamp(17px,5.1vw,30px);line-height:1.2;letter-spacing:.12em;padding-left:.12em;white-space:nowrap}
 .emb b{display:block;margin-top:2px;font-weight:500;font-size:2.6em;line-height:1;letter-spacing:.04em}
@@ -267,6 +271,7 @@ a{color:inherit;text-decoration:none}
 }
 @media (prefers-reduced-motion:reduce){
   .vote.bb-shine-play::after,.blob,.ballot,.pencil{animation:none}
+  .party{display:none}
   .pops{display:none}
   .ballot .msg{animation:none;clip-path:none}
   .stamp{animation:none;opacity:1}
@@ -284,6 +289,7 @@ a{color:inherit;text-decoration:none}
   <!-- ===== FV ===== -->
   <section class="fv" id="fv">
     <span class="blob y" aria-hidden="true"></span><span class="blob b" aria-hidden="true"></span><span class="blob p" aria-hidden="true"></span>
+    <div class="party" id="party" aria-hidden="true"></div>
     <div class="fv-head">
       <p class="emb">RAKUTEN SHOP OF THE YEAR<b><span>2026</span></b></p>
       <h1 class="fv-title">投票受付中</h1>
@@ -499,6 +505,40 @@ a{color:inherit;text-decoration:none}
       box.appendChild(p);
     }
   });
+
+  // FVの紙吹雪：タイトルの少し下から、左右の端でクラッカーのようにパーンと打ち上げる
+  var party = document.getElementById('party'), fvEl = document.getElementById('fv');
+  var PARTY = ['#FFC300', '#FF4C86', '#ffe27a', '#ffb3cb', '#FFC300', '#FF4C86', '#1E9FD6'];
+  var calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function popFrom(x, y, dir){
+    for (var k = 0; k < 34; k++) {
+      var e = document.createElement('i'), shape = k % 3, w = 6 + Math.random() * 5;
+      if (shape === 1) e.className = 'c';
+      e.style.cssText = 'width:' + (shape === 2 ? 4 : w) + 'px;height:' + (shape === 1 ? w : shape === 2 ? 15 : w * 1.5) + 'px;background:' + PARTY[k % PARTY.length] + ';left:' + x + 'px;top:' + y + 'px';
+      party.appendChild(e);
+      var a = (-30 - Math.random() * 35) * Math.PI / 180, v = 180 + Math.random() * 130;
+      var dx = Math.cos(a) * v * dir, dy = Math.sin(a) * v, fall = 260 + Math.random() * 260, r = (Math.random() * 720 - 360);
+      var anim = e.animate([
+        {transform:'translate(0,0) rotate(0deg) scale(.4)', opacity:1, easing:'cubic-bezier(.1,.8,.3,1)'},
+        {transform:'translate(' + (dx * .8) + 'px,' + (dy * .9) + 'px) rotate(' + (r * .3) + 'deg) scale(1)', opacity:1, offset:.3, easing:'cubic-bezier(.45,0,.8,.6)'},
+        {transform:'translate(' + (dx * 1.1) + 'px,' + (dy * .9 + fall) + 'px) rotate(' + r + 'deg) scale(1)', opacity:1, offset:.85},
+        {transform:'translate(' + (dx * 1.15) + 'px,' + (dy * .9 + fall * 1.15) + 'px) rotate(' + (r * 1.1) + 'deg) scale(1)', opacity:0}
+      ], {duration:2400 + Math.random() * 900, delay:Math.random() * 120, fill:'forwards'});
+      anim.onfinish = (function(el){ return function(){ el.remove(); }; })(e);
+    }
+  }
+  function partyPop(){
+    var t = document.querySelector('.fv-title').getBoundingClientRect(), f = fvEl.getBoundingClientRect();
+    var y = t.bottom - f.top + 90;
+    popFrom(0, y, 1);
+    popFrom(f.width, y, -1);
+  }
+  if (!calm && party.animate) {
+    var fvSeen = true;
+    window.addEventListener('load', function(){ setTimeout(partyPop, 400); });
+    new IntersectionObserver(function(es){ fvSeen = es[0].isIntersecting; }).observe(fvEl);
+    setInterval(function(){ if (fvSeen && !document.hidden) partyPop(); }, 7000);
+  }
 
   // FVを過ぎたら追従ボタン表示
   // 締めの投票ボタンが見えている間は隠す
