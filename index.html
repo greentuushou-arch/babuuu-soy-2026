@@ -65,10 +65,11 @@ a{color:inherit;text-decoration:none}
 .blob.b{width:260px;height:260px;background:var(--blue-l);top:300px;right:-110px;animation-delay:-5s}
 .blob.p{width:180px;height:180px;background:var(--pink-l);top:720px;left:-60px;animation-delay:-9s}
 @keyframes float{to{transform:translate(24px,30px) scale(1.08)}}
-/* クラッカーの紙吹雪（JSで左右の端からパーンと打ち上げる） */
+/* 上からパラパラ降る紙吹雪（澤井珈琲のFVと同じ作り。数秒おきに降らせ直す） */
 .party{position:absolute;inset:0;z-index:3;pointer-events:none;overflow:hidden}
-.party i{position:absolute;left:0;top:0;border-radius:2px;will-change:transform,opacity}
-.party i.c{border-radius:50%}
+.party i{position:absolute;top:-20px;border-radius:2px;opacity:0;will-change:transform,opacity}
+.party.is-play i{animation-name:fall;animation-timing-function:ease-in;animation-fill-mode:forwards}
+@keyframes fall{0%{transform:translate(0,0) rotate(0deg);opacity:1}85%{opacity:1}100%{transform:translate(var(--drift),var(--fall)) rotate(var(--rot));opacity:0}}
 .fv-head{position:relative;z-index:2;text-align:center;padding:0 12px}
 .emb{font-family:var(--en);font-weight:400;font-size:clamp(17px,5.1vw,30px);line-height:1.2;letter-spacing:.12em;padding-left:.12em;white-space:nowrap}
 .emb b{display:block;margin-top:2px;font-weight:500;font-size:2.6em;line-height:1;letter-spacing:.04em}
@@ -506,39 +507,24 @@ a{color:inherit;text-decoration:none}
     }
   });
 
-  // FVの紙吹雪：タイトルの少し下から、左右の端でクラッカーのようにパーンと打ち上げる
-  var party = document.getElementById('party'), fvEl = document.getElementById('fv');
-  var PARTY = ['#FFC300', '#FF4C86', '#ffe27a', '#ffb3cb', '#FFC300', '#FF4C86', '#1E9FD6'];
-  var calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function popFrom(x, y, dir){
-    for (var k = 0; k < 34; k++) {
-      var e = document.createElement('i'), shape = k % 3, w = 6 + Math.random() * 5;
-      if (shape === 1) e.className = 'c';
-      e.style.cssText = 'width:' + (shape === 2 ? 4 : w) + 'px;height:' + (shape === 1 ? w : shape === 2 ? 15 : w * 1.5) + 'px;background:' + PARTY[k % PARTY.length] + ';left:' + x + 'px;top:' + y + 'px';
+  // FVの紙吹雪：上からパラパラ降らせ、5〜8秒おきに降らせ直す
+  var party = document.getElementById('party');
+  var PARTY = ['#FFC300', '#FF4C86', '#ffe27a', '#ffb3cb', '#FFFFFF'];
+  function rain(){
+    var h = Math.min(party.parentElement.offsetHeight, 1000);
+    party.innerHTML = '';
+    party.classList.remove('is-play');
+    for (var k = 0; k < 36; k++) {
+      var e = document.createElement('i'), ribbon = Math.random() < 0.35, size = ribbon ? 3 + Math.random() * 2 : 6 + Math.random() * 6;
+      e.style.cssText = 'width:' + size + 'px;height:' + (ribbon ? size * 4 : size) + 'px;left:' + (Math.random() * 100) + '%;background:' + PARTY[Math.floor(Math.random() * PARTY.length)] +
+        ';animation-duration:' + (2.2 + Math.random() * 1.6) + 's;animation-delay:' + (Math.random() * 0.8) + 's;--fall:' + (h * 0.75 + Math.random() * h * 0.35) + 'px;--drift:' + (Math.random() * 100 - 50) + 'px;--rot:' + (360 + Math.random() * 360) + 'deg';
       party.appendChild(e);
-      var a = (-30 - Math.random() * 35) * Math.PI / 180, v = 180 + Math.random() * 130;
-      var dx = Math.cos(a) * v * dir, dy = Math.sin(a) * v, fall = 260 + Math.random() * 260, r = (Math.random() * 720 - 360);
-      var anim = e.animate([
-        {transform:'translate(0,0) rotate(0deg) scale(.4)', opacity:1, easing:'cubic-bezier(.1,.8,.3,1)'},
-        {transform:'translate(' + (dx * .8) + 'px,' + (dy * .9) + 'px) rotate(' + (r * .3) + 'deg) scale(1)', opacity:1, offset:.3, easing:'cubic-bezier(.45,0,.8,.6)'},
-        {transform:'translate(' + (dx * 1.1) + 'px,' + (dy * .9 + fall) + 'px) rotate(' + r + 'deg) scale(1)', opacity:1, offset:.85},
-        {transform:'translate(' + (dx * 1.15) + 'px,' + (dy * .9 + fall * 1.15) + 'px) rotate(' + (r * 1.1) + 'deg) scale(1)', opacity:0}
-      ], {duration:2400 + Math.random() * 900, delay:Math.random() * 120, fill:'forwards'});
-      anim.onfinish = (function(el){ return function(){ el.remove(); }; })(e);
     }
+    void party.offsetWidth;
+    party.classList.add('is-play');
   }
-  function partyPop(){
-    var t = document.querySelector('.fv-title').getBoundingClientRect(), f = fvEl.getBoundingClientRect();
-    var y = t.bottom - f.top + 90;
-    popFrom(0, y, 1);
-    popFrom(f.width, y, -1);
-  }
-  if (!calm && party.animate) {
-    var fvSeen = true;
-    window.addEventListener('load', function(){ setTimeout(partyPop, 400); });
-    new IntersectionObserver(function(es){ fvSeen = es[0].isIntersecting; }).observe(fvEl);
-    setInterval(function(){ if (fvSeen && !document.hidden) partyPop(); }, 7000);
-  }
+  function rainLater(){ setTimeout(function(){ rain(); rainLater(); }, 5000 + Math.random() * 3000); }
+  window.addEventListener('load', function(){ rain(); rainLater(); });
 
   // FVを過ぎたら追従ボタン表示
   // 締めの投票ボタンが見えている間は隠す
