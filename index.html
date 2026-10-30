@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>babuuu.へ応援よろしくお願いします｜ショップ・オブ・ザ・イヤー2026 投票受付中</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* babuuu. の配色（過去の特集と同じ 黄×青×ピンク）＋看板のやわらかいグレー */
+  --ink:#181613;
+  --ink-2:#6b6660;
+  --paper:#f6f4f0;
+  --paper-d:#ece8e1;
+  --yellow:#FFC300;
+  --yellow-l:#fff3c4;
+  --blue:#1E9FD6;
+  --blue-l:#dff1fa;
+  --pink:#FF4C86;
+  --pink-l:#ffe3ec;
+  --line:rgba(24,22,19,.12);
+  --sans:"Noto Sans JP",sans-serif;
+  --en:"Jost","Noto Sans JP",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--yellow);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.9;letter-spacing:.04em;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:750px;margin:0 auto;background:var(--paper);overflow:hidden;padding-bottom:84px}
+.in{padding:0 24px}
+.en{font-family:var(--en)}
+
+/* ---------- 共通見出し（吹き出しキッカー） ---------- */
+.head{text-align:center;margin-bottom:38px}
+.kicker{position:relative;display:inline-flex;align-items:center;justify-content:center;min-width:136px;padding:0 22px;aspect-ratio:2/1;border-radius:50%;background:var(--yellow);color:var(--ink);font-family:var(--en);font-weight:500;font-size:17px;letter-spacing:.14em}
+.kicker::after{content:"";position:absolute;bottom:-16px;left:42%;width:18px;height:22px;background:inherit;clip-path:polygon(0 0,100% 0,20% 100%)}
+.kicker.blue{background:var(--blue);color:#fff}
+.kicker.pink{background:var(--pink);color:#fff}
+.head h2{font-weight:900;font-size:28px;line-height:1.55;letter-spacing:.08em;margin-top:26px}
+.head .lead{margin-top:16px;font-size:16px;color:var(--ink-2)}
+.dark .head h2{color:#fff}
+.dark .head .lead{color:rgba(255,255,255,.72)}
+
+/* ---------- 投票ボタン（シャイン） ---------- */
+.vote{position:relative;display:flex;align-items:center;justify-content:center;gap:12px;width:100%;max-width:520px;min-height:72px;margin:0 auto;padding:0 20px;border-radius:999px;background:var(--ink);color:#fff;font-weight:700;font-size:clamp(15px,4.4vw,19px);letter-spacing:.08em;white-space:nowrap;box-shadow:0 5px 0 rgba(0,0,0,.25),0 10px 22px rgba(0,0,0,.15);overflow:hidden;transition:transform .15s,box-shadow .15s}
+.vote:active{transform:translateY(3px);box-shadow:0 2px 0 rgba(0,0,0,.25)}
+.vote .arw{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--yellow);color:var(--ink);font-size:12px;flex:none}
+.vote::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-20deg);pointer-events:none}
+.vote.bb-shine-play::after{animation:shine 1.6s ease-in-out}
+@keyframes shine{to{left:130%}}
+.vote-note{text-align:center;font-size:14px;color:var(--ink-2);margin-top:14px;line-height:1.7}
+
+/* ---------- ヘッダー ---------- */
+.site{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 20px;background:#fff;border-bottom:1px solid var(--line)}
+.site img{width:118px}
+.site span{font-size:13px;letter-spacing:.06em;color:var(--ink-2);text-align:right;line-height:1.5}
+
+/* ---------- FV ---------- */
+.fv{position:relative;background:var(--paper);overflow:hidden;padding:40px 0 48px}
+.blob{position:absolute;border-radius:50%;filter:blur(2px);opacity:.55;animation:float 14s ease-in-out infinite alternate}
+.blob.y{width:220px;height:220px;background:var(--yellow-l);top:-60px;left:-70px}
+.blob.b{width:260px;height:260px;background:var(--blue-l);top:300px;right:-110px;animation-delay:-5s}
+.blob.p{width:180px;height:180px;background:var(--pink-l);top:720px;left:-60px;animation-delay:-9s}
+@keyframes float{to{transform:translate(24px,30px) scale(1.08)}}
+.fv-head{position:relative;z-index:2;text-align:center;padding:0 12px}
+.emb{font-family:var(--en);font-weight:400;font-size:clamp(17px,5.1vw,30px);line-height:1.2;letter-spacing:.12em;padding-left:.12em;white-space:nowrap}
+.emb b{display:block;margin-top:2px;font-weight:500;font-size:2.6em;line-height:1;letter-spacing:.04em}
+.emb b span{background:linear-gradient(transparent 64%,var(--yellow) 64%,var(--yellow) 92%,transparent 92%);padding:0 .06em}
+.fv-title{margin-top:14px;white-space:nowrap;font-weight:900;font-size:clamp(48px,14.6vw,106px);line-height:1.1;letter-spacing:.02em}
+.fv-dl{display:inline-flex;align-items:baseline;gap:8px;margin-top:12px;background:var(--yellow);color:var(--ink);font-size:17px;font-weight:700;padding:6px 22px;border-radius:999px}
+.fv-dl b{font-family:var(--en);font-weight:600;font-size:30px;line-height:1}
+.fv-pts{position:relative;z-index:2;padding:24px 22px 0}
+.fv-pt{background:#fff;border:1.5px solid var(--ink);border-radius:18px;padding:18px 10px 14px;text-align:center;line-height:1.5;letter-spacing:0}
+.fv-pt .l1{white-space:nowrap;font-size:clamp(14px,4.2vw,19px);font-weight:700;letter-spacing:.04em;color:var(--pink)}
+.fv-pt .l2{white-space:nowrap;font-size:clamp(14px,4.1vw,18px);font-weight:500;margin-top:4px}
+.fv-pt .l3{font-weight:900;font-size:clamp(23px,6.7vw,36px);line-height:1.35;margin-top:6px}
+.fv-pt .l3 .w{display:block;white-space:nowrap}
+.fv-pt .l3 .p{font-family:var(--en);font-weight:600;font-size:1.5em;line-height:1;color:var(--blue);letter-spacing:.01em}
+.fv-pt .l3 .p small{font-family:var(--sans);font-size:.6em}
+.fv-pt .l3 .w b{font-family:var(--en);font-weight:600;font-size:1.15em;color:var(--blue)}
+.fv-pt .nt{white-space:nowrap;font-size:clamp(11px,3.3vw,14px);color:var(--ink-2);margin-top:10px}
+.fv-body{position:relative;z-index:2;padding:0 22px}
+.fv-lead{margin-top:6px;text-align:center;white-space:nowrap;font-weight:700;font-size:clamp(15px,4.2vw,26px);letter-spacing:.02em;line-height:1.5}
+.fv-copy{text-align:center;margin-top:8px;font-weight:900;font-size:clamp(24px,6.8vw,40px);line-height:1.6;letter-spacing:.04em}
+.fv-copy em{font-style:normal;font-family:var(--en);font-weight:500;font-size:1.15em;letter-spacing:.02em}
+.fv-cta{margin-top:28px}
+
+/* ---------- 投票アニメ：えんぴつで✓ → スタンプをポン ---------- */
+.stage{position:relative;z-index:2;height:300px;margin-top:4px}
+.ballot{position:absolute;left:50%;top:56px;width:250px;height:168px;margin-left:-125px;background:#fff;border-radius:14px;box-shadow:0 14px 30px rgba(24,22,19,.12),0 0 0 1.5px var(--ink);animation:card 5s ease-in-out infinite}
+.ballot .bl-top{display:flex;justify-content:space-between;align-items:center;height:34px;padding:0 16px;border-bottom:1.5px dashed var(--line);font-family:var(--en);font-weight:500;font-size:12px;letter-spacing:.16em}
+.ballot .bl-top i{font-style:normal;color:var(--blue)}
+.ballot .row{position:absolute;left:22px;top:66px;display:flex;align-items:center;gap:14px}
+.ballot .box{width:40px;height:40px;border:2px solid var(--ink);border-radius:8px;flex:none}
+.ballot .row img{width:88px}
+.ballot .sub{position:absolute;left:22px;bottom:14px;font-size:12px;color:var(--ink-2);letter-spacing:.06em}
+.ballot svg.ck{position:absolute;left:0;top:0;width:250px;height:168px;overflow:visible;pointer-events:none}
+.ballot svg.ck path{fill:none;stroke:var(--pink);stroke-width:6;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:62;stroke-dashoffset:62;animation:check 5s linear infinite}
+/* えんぴつ：先端(10,104)を✓の線の上に沿わせて動かす */
+.pencil{position:absolute;left:0;top:0;width:20px;height:110px;transform-origin:10px 104px;opacity:0;animation:pencil 5s linear infinite;filter:drop-shadow(2px 4px 4px rgba(0,0,0,.18))}
+.stamp{position:absolute;left:166px;top:56px;width:104px;height:104px;border-radius:50%;border:4px solid var(--pink);color:var(--pink);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;background:rgba(255,255,255,.6);opacity:0;animation:stamp 5s cubic-bezier(.3,.6,.4,1) infinite}
+.stamp::before{content:"";position:absolute;inset:4px;border-radius:50%;border:1.5px solid var(--pink)}
+.stamp b{font-family:var(--en);font-weight:600;font-size:17px;line-height:1;letter-spacing:.08em}
+.stamp small{font-family:var(--en);font-weight:500;font-size:10px;letter-spacing:.14em}
+.stamp i{font-style:normal;font-size:16px;line-height:1}
+.pops{position:absolute;left:218px;top:108px;width:0;height:0;z-index:3}
+.pops i{position:absolute;left:0;top:0;width:var(--sz,22px);height:var(--sz,22px);margin:calc(var(--sz,22px) / -2) 0 0 calc(var(--sz,22px) / -2);background:var(--img) center/contain no-repeat;opacity:0;animation:pop 5s linear infinite}
+@keyframes card{0%{opacity:0;transform:translateY(12px)}6%,49%{opacity:1;transform:translateY(0) scale(1)}51%{transform:scale(.97,.95)}55%{transform:scale(1)}90%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(1)}}
+@keyframes check{0%,18%{stroke-dashoffset:62}23%{stroke-dashoffset:46}34%,100%{stroke-dashoffset:0}}
+@keyframes pencil{
+  0%,8%{opacity:0;transform:translate(150px,-60px) rotate(32deg)}
+  14%{opacity:1;transform:translate(26px,-30px) rotate(32deg)}
+  18%{transform:translate(20px,-18px) rotate(32deg)}
+  23%{transform:translate(30px,-6px) rotate(32deg)}
+  34%{transform:translate(52px,-38px) rotate(32deg);opacity:1}
+  42%,100%{opacity:0;transform:translate(170px,-90px) rotate(32deg)}
+}
+@keyframes stamp{0%,42%{opacity:0;transform:translateY(-80px) scale(1.6)}49%{opacity:1;transform:translateY(0) scale(.93)}53%{transform:scale(1.03)}57%{transform:scale(1)}90%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(1)}}
+@keyframes pop{0%,49%{opacity:0;transform:translate(0,0) scale(.3);animation-timing-function:cubic-bezier(.1,.8,.25,1)}50%{opacity:1}76%{opacity:1;animation-timing-function:linear}90%,100%{opacity:0;transform:translate(var(--bx),var(--by)) scale(1) rotate(var(--br))}}
+
+/* ---------- 投票スタート ---------- */
+.start{padding:56px 20px 48px;text-align:center}
+.start h2{font-weight:900;font-size:22px;line-height:1.7;letter-spacing:.06em;margin-top:28px}
+.start h2 b{color:var(--blue)}
+.period{display:inline-block;margin-top:22px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 12px;line-height:1.7}
+.period dt{font-family:var(--en);font-weight:500;font-size:14px;color:var(--blue);letter-spacing:.2em}
+.period dd{white-space:nowrap;font-size:clamp(13px,3.9vw,17px);font-weight:700;letter-spacing:0}
+
+/* ---------- お手紙 ---------- */
+.letter-sec{padding:0 16px 64px}
+.letter{background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 14px 34px rgba(24,22,19,.08)}
+.letter .ph{position:relative}
+.letter .ph img{width:100%;aspect-ratio:1080/700;object-fit:cover}
+.letter .ph span{position:absolute;left:16px;bottom:14px;background:#fff;border-radius:999px;padding:4px 14px;font-family:var(--en);font-weight:500;font-size:13px;letter-spacing:.14em}
+.letter .tx{padding:30px 24px 34px}
+.letter p{font-size:17px;font-weight:500;line-height:2.05}
+.letter p+p{margin-top:1.1em}
+.letter .to{font-size:18px;font-weight:700;color:var(--blue)}
+.letter mark{background:linear-gradient(transparent 62%,var(--yellow-l) 62%);color:inherit}
+.letter .theme{margin:1.4em 0;padding:16px 10px;text-align:center;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-weight:900;font-size:20px;line-height:1.75}
+.letter .sign{margin-top:1.6em;text-align:right}
+.letter .sign small{display:block;font-size:15px;color:var(--ink-2)}
+
+/* ---------- ありがとうございます（数字） ---------- */
+.nums{background:var(--ink);color:#fff;padding:66px 0 62px}
+.num-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.num{border:1px solid rgba(255,255,255,.18);border-radius:18px;padding:24px 8px 20px;text-align:center;line-height:1.4}
+.num.wide{grid-column:1/-1}
+.num .v{display:block;white-space:nowrap;font-family:var(--en);font-weight:500;font-size:48px;line-height:1.05;color:var(--yellow)}
+.num .v small{font-family:var(--sans);font-size:.36em;font-weight:700;color:#fff;margin-left:2px}
+.num .v.aw{font-family:var(--sans);font-weight:900;font-size:clamp(26px,7.6vw,40px);line-height:1.3}
+.num .l{display:block;margin-top:10px;font-size:15px;font-weight:700}
+.num .s{display:block;margin-top:4px;font-family:var(--en);font-size:13px;letter-spacing:.14em;color:rgba(255,255,255,.5)}
+.nums .msg{margin-top:38px;text-align:center;font-size:18px;font-weight:700;line-height:2.1;letter-spacing:.06em}
+.nums .nt{margin-top:14px;text-align:center;font-size:13px;color:rgba(255,255,255,.5)}
+
+/* ---------- babuuu.がそろえるもの ---------- */
+.good{padding:66px 0 60px}
+.pts{display:grid;gap:16px}
+.pt{display:grid;grid-template-columns:38% 1fr;gap:16px;align-items:center;background:#fff;border-radius:18px;padding:14px}
+.pt .ph{aspect-ratio:1/1;border-radius:12px;overflow:hidden;background:#fff}
+.pt .ph img{width:100%;height:100%;object-fit:contain}
+.pt .no{font-family:var(--en);font-weight:500;font-size:14px;letter-spacing:.12em}
+.pt:nth-child(1) .no{color:var(--blue)}
+.pt:nth-child(2) .no{color:var(--pink)}
+.pt:nth-child(3) .no{color:#c99700}
+.pt h3{font-weight:900;font-size:18px;line-height:1.5;margin-top:2px}
+.pt p{font-size:15px;color:var(--ink-2);line-height:1.75;margin-top:6px}
+
+/* ---------- 声 ---------- */
+.voice{background:var(--paper-d);padding:66px 0 60px}
+.bubbles{display:grid;gap:14px}
+.bb{position:relative;background:#fff;border-radius:22px;padding:14px 20px;font-weight:500;font-size:17px;line-height:1.7}
+.bb::after{content:"";position:absolute;bottom:-10px;width:18px;height:14px;background:#fff;clip-path:polygon(0 0,100% 0,30% 100%)}
+.bb:nth-child(odd){margin-right:20px}
+.bb:nth-child(odd)::after{left:36px}
+.bb:nth-child(even){margin-left:20px}
+.bb:nth-child(even)::after{right:36px;transform:scaleX(-1)}
+.voice .after{text-align:center;margin-top:34px;font-size:16px;line-height:2}
+
+/* ---------- 投票方法 ---------- */
+.how{padding:66px 0 56px}
+.steps{display:grid;gap:12px}
+.steps li{list-style:none;display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start;background:#fff;border-radius:18px;padding:18px}
+.steps .sn{display:grid;place-items:center;width:58px;height:58px;border-radius:50%;background:var(--yellow);font-family:var(--en);font-weight:500;font-size:11px;letter-spacing:.1em;line-height:1.05;text-align:center}
+.steps .sn b{display:block;font-weight:500;font-size:24px;letter-spacing:0}
+.steps h3{font-size:17px;font-weight:900;line-height:1.5}
+.steps p{font-size:15px;color:var(--ink-2);line-height:1.7;margin-top:2px}
+
+/* ---------- 締め ---------- */
+.last{background:var(--blue);color:#fff;padding:66px 24px 60px;text-align:center}
+.last .big{font-family:var(--en);font-weight:500;font-size:clamp(46px,13vw,80px);line-height:1;letter-spacing:.04em}
+.last h2{font-weight:900;font-size:26px;line-height:1.6;letter-spacing:.06em;margin:22px 0 30px}
+.last h2 em{font-style:normal;font-family:var(--en);font-weight:500;font-size:1.15em}
+.last .vote-note{color:rgba(255,255,255,.85)}
+
+/* ---------- 商品 ---------- */
+.items{background:#fff;padding:66px 0 60px}
+.sub-head{text-align:center;margin:0 0 22px}
+.sub-head .en{display:block;font-weight:500;font-size:14px;letter-spacing:.24em;color:var(--blue)}
+.sub-head b{display:block;font-weight:900;font-size:20px;letter-spacing:.06em;margin-top:2px}
+.sub-head.mt{margin-top:56px}
+.rank3{display:grid;gap:16px}
+.rk{display:grid;grid-template-columns:42% 1fr;gap:14px;align-items:center}
+.rk .ph{position:relative;display:block;aspect-ratio:1/1;border-radius:14px;overflow:hidden;background:#fff;border:1px solid var(--line)}
+.rk .ph img{width:100%;height:100%;object-fit:contain}
+.rk .no{position:absolute;top:0;left:0;z-index:2;display:grid;place-items:center;width:44px;height:44px;border-radius:0 0 14px 0;background:var(--yellow);font-family:var(--en);font-weight:500;font-size:22px}
+.rk h4{font-size:16px;font-weight:700;line-height:1.55}
+.price{font-family:var(--en);font-weight:500;font-size:20px;color:var(--pink);margin-top:4px}
+.price small{font-family:var(--sans);font-size:13px;font-weight:500;color:var(--ink-2)}
+.rank-nt{margin-top:12px;font-size:13px;color:var(--ink-2);text-align:right}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:24px 14px}
+.it .ph{display:block;aspect-ratio:1/1;border-radius:14px;overflow:hidden;background:#fff;border:1px solid var(--line)}
+.it .ph img{width:100%;height:100%;object-fit:contain}
+.it h4{font-size:15px;font-weight:700;line-height:1.55;margin-top:10px}
+.it .price{font-size:18px}
+.links{margin-top:46px}
+.btn{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:62px;padding:0 26px;border:1.5px solid var(--ink);border-radius:999px;font-weight:700;font-size:16px;letter-spacing:.06em;transition:background .25s,color .25s}
+.btn::after{content:"→";font-family:var(--en)}
+.btn:hover{background:var(--ink);color:#fff}
+
+/* ---------- 追従ボタン ---------- */
+.fixed{position:fixed;left:0;right:0;bottom:0;z-index:50;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(255,195,0,.96);transform:translateY(110%);transition:transform .35s}
+.fixed.on{transform:none}
+.fixed .vote{min-height:56px}
+
+@media (min-width:768px){
+  .in{padding:0 56px}
+  .site{padding:16px 32px}
+  .site img{width:140px}
+  .fv{padding-top:56px}
+  .fv-dl{font-size:20px;padding:8px 30px}
+  .fv-dl b{font-size:38px}
+  .fv-pts{padding:28px 56px 0}
+  .fv-body{padding:0 56px}
+  .stage{height:330px}
+  .ballot{scale:1.1}
+  .head h2{font-size:32px}
+  .start h2{font-size:28px}
+  .letter-sec{padding:0 56px 70px}
+  .letter .tx{padding:40px 52px 46px}
+  .letter p{font-size:18px}
+  .num-grid{grid-template-columns:1fr 1fr 1fr}
+  .num.wide{grid-column:auto}
+  .num .v.aw{font-size:30px;line-height:1.6}
+  .pt{grid-template-columns:200px 1fr;gap:24px;padding:18px}
+  .pt h3{font-size:20px}
+  .bb{font-size:18px}
+  .bb:nth-child(odd){margin-right:140px}
+  .bb:nth-child(even){margin-left:140px}
+  .steps{grid-template-columns:repeat(3,1fr)}
+  .steps li{grid-template-columns:1fr;justify-items:center;text-align:center;padding:26px 16px}
+  .rank3{grid-template-columns:repeat(3,1fr)}
+  .rk{grid-template-columns:1fr}
+  .grid{grid-template-columns:repeat(3,1fr)}
+  .fixed{display:none}
+  .wrap{padding-bottom:0}
+}
+@media (prefers-reduced-motion:reduce){
+  .vote.bb-shine-play::after,.blob,.ballot,.pencil{animation:none}
+  .pops{display:none}
+  .ballot svg.ck path{animation:none;stroke-dashoffset:0}
+  .stamp{animation:none;opacity:1}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="site">
+    <a href="https://www.rakuten.co.jp/babuuu/" target="_blank" rel="noopener"><img src="images/logo.png" alt="babuuu." width="893" height="220"></a>
+    <span>SOY2026<br>投票のお願い</span>
+  </header>
+
+  <!-- ===== FV ===== -->
+  <section class="fv" id="fv">
+    <span class="blob y" aria-hidden="true"></span><span class="blob b" aria-hidden="true"></span><span class="blob p" aria-hidden="true"></span>
+    <div class="fv-head">
+      <p class="emb">RAKUTEN SHOP OF THE YEAR<b><span>2026</span></b></p>
+      <h1 class="fv-title">投票受付中</h1>
+      <p class="fv-dl">投票は<b>11.30</b>(月)09:59まで</p>
+    </div>
+    <div class="fv-pts">
+      <div class="fv-pt">
+        <p class="l1">あなたの1票でベストショップが決まる！</p>
+        <p class="l2">お気に入りのショップに投票すると</p>
+        <p class="l3"><span class="w">最大<span class="p">10,000<small>ポイント</small></span>が</span><span class="w"><b>10</b>万名様に当たる！</span></p>
+        <p class="nt">※詳細は楽天市場の投票ページをご確認ください</p>
+      </div>
+    </div>
+    <div class="stage" aria-hidden="true">
+      <div class="ballot">
+        <div class="bl-top"><span>VOTE CARD</span><i>SOY 2026</i></div>
+        <div class="row"><span class="box"></span><img src="images/logo.png" alt=""></div>
+        <p class="sub">あなたの一票をどうぞ</p>
+        <svg class="ck" viewBox="0 0 250 168"><path d="M30 86 L40 98 L62 66"/></svg>
+        <svg class="pencil" viewBox="0 0 20 110"><rect x="0" y="0" width="20" height="14" rx="3" fill="#FF4C86"/><rect x="0" y="14" width="20" height="4" fill="#d9d4cc"/><rect x="0" y="18" width="20" height="62" fill="#FFC300"/><rect x="7" y="18" width="6" height="62" fill="#ffd54d"/><polygon points="0,80 20,80 10,104" fill="#f1d9b5"/><polygon points="6.5,96 13.5,96 10,104" fill="#181613"/></svg>
+        <div class="stamp"><i>♥</i><b>THANK<br>YOU</b><small>babuuu.</small></div>
+        <div class="pops" data-pops="7"></div>
+      </div>
+    </div>
+    <div class="fv-body">
+      <p class="fv-lead">いつもご利用いただきありがとうございます</p>
+      <p class="fv-copy"><em>babuuu.</em>に<br>あなたの一票を</p>
+      <div class="fv-cta">
+        <a class="vote" data-vote href="#">babuuu.に投票する<span class="arw">▶</span></a>
+        <p class="vote-note">楽天市場の投票ページが開きます</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 投票スタート ===== -->
+  <section class="start">
+    <span class="kicker">START!</span>
+    <h2>楽天市場<br><b>ショップ・オブ・ザ・イヤー<br>2026</b> の投票が始まりました</h2>
+    <dl class="period"><dt>VOTING PERIOD</dt><dd>2026年11月1日(日)〜11月30日(月)09:59まで</dd></dl>
+  </section>
+
+  <!-- ===== お手紙 ===== -->
+  <section class="letter-sec">
+    <div class="letter">
+      <div class="ph"><img src="images/staff.jpg" alt="babuuu.のスタッフ" loading="lazy"><span>FROM STAFF</span></div>
+      <div class="tx">
+        <p class="to">お客様へ</p>
+        <p>いつもbabuuu.をご利用いただき、誠にありがとうございます。11月1日より、楽天市場「ショップ・オブ・ザ・イヤー2026」の投票が始まりました。</p>
+        <p>babuuu.は、ベビーカーやチャイルドシート、毎日のお世話グッズ、出産祝いのギフトまで、スタッフが<mark>「これなら使いたい」と思えるもの</mark>を選んでお届けしています。</p>
+        <p class="theme">スタイリッシュな<br>子育てライフを</p>
+        <p>「こんな商品を扱ってほしい」「こんな特集が見たい」など、ぜひ皆さまの声をお聞かせください。いただいたメッセージは、スタッフ一同の大きな励みになります。</p>
+        <p>babuuu.に、あなたの一票をお寄せいただけますと幸いです。</p>
+        <p class="sign"><small>2026年11月</small>babuuu. スタッフ一同</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ありがとうございます ===== -->
+  <section class="nums dark">
+    <div class="in">
+      <div class="head">
+        <span class="kicker">THANKS</span>
+        <h2>ありがとうございます</h2>
+      </div>
+      <div class="num-grid">
+        <p class="num"><span class="v">4.78</span><span class="l">ショップ評価</span><span class="s">RATING</span></p>
+        <p class="num"><span class="v">5,657<small>件</small></span><span class="l">いただいたレビュー</span><span class="s">REVIEWS</span></p>
+        <p class="num wide"><span class="v aw">ジャンル賞</span><span class="l">SHOP OF THE MONTH 2026年6月<br>ベビー・マタニティ</span><span class="s">AWARD</span></p>
+      </div>
+      <p class="msg">たくさんの「ありがとう」に<br>支えられています</p>
+      <p class="nt">※ショップ評価・レビュー件数は<br>2026年10月30日時点</p>
+    </div>
+  </section>
+
+  <!-- ===== babuuu.がそろえるもの ===== -->
+  <section class="good">
+    <div class="in">
+      <div class="head">
+        <span class="kicker blue">OUR SHOP</span>
+        <h2>babuuu.が<br>そろえるもの</h2>
+        <p class="lead">おでかけも、おうちも<br>子育ての毎日をまるごと</p>
+      </div>
+      <div class="pts">
+        <article class="pt">
+          <span class="ph"><img src="images/bgoods-00210.jpg" alt="コンビ クルムーヴ ロング" loading="lazy"></span>
+          <div><span class="no">01 — Go Out</span><h3>ベビーカー・チャイルドシート</h3><p>コンビやアップリカ、Joieなど。安心して出かけられる定番ブランドをそろえています。</p></div>
+        </article>
+        <article class="pt">
+          <span class="ph"><img src="images/bgoods-00107.jpg" alt="リッチェル ひんやりしないおふろマット" loading="lazy"></span>
+          <div><span class="no">02 — Daily Care</span><h3>毎日のお世話グッズ</h3><p>おふろ、トイトレ、お食事まで。毎日をちょっとラクにするアイテムを選んでいます。</p></div>
+        </article>
+        <article class="pt">
+          <span class="ph"><img src="images/goods-809.jpg" alt="おむつケーキ" loading="lazy"></span>
+          <div><span class="no">03 — Gift</span><h3>出産祝いのギフト</h3><p>名入れやおむつケーキなど、贈る人も受け取る人もうれしいギフトを用意しています。</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== お声 ===== -->
+  <section class="voice">
+    <div class="in">
+      <div class="head">
+        <span class="kicker pink">VOICE</span>
+        <h2>皆さまのお声を<br>お聞かせください</h2>
+        <p class="lead">投票ページの応援メッセージ欄に<br>ひとことお寄せいただけるとうれしいです</p>
+      </div>
+      <div class="bubbles">
+        <p class="bb">ベビーカー選びで迷ったときに助かりました</p>
+        <p class="bb">出産祝いで贈ったら喜ばれました</p>
+        <p class="bb">こんな特集を、またやってほしい</p>
+        <p class="bb">これからも応援しています</p>
+      </div>
+      <p class="after">いただいたご意見や温かいメッセージは<br>スタッフ一同の大きな励みになります</p>
+    </div>
+  </section>
+
+  <!-- ===== 投票方法 ===== -->
+  <section class="how">
+    <div class="in">
+      <div class="head">
+        <span class="kicker">HOW TO</span>
+        <h2>投票はかんたん<br>3ステップ</h2>
+      </div>
+      <ol class="steps">
+        <li><span class="sn">STEP<b>1</b></span><div><h3>投票ボタンをタップ</h3><p>このページの投票ボタンから、楽天市場の投票ページへ</p></div></li>
+        <li><span class="sn">STEP<b>2</b></span><div><h3>楽天会員でログイン</h3><p>お持ちの楽天会員IDでログインしてください</p></div></li>
+        <li><span class="sn">STEP<b>3</b></span><div><h3>投票＆応援メッセージ</h3><p>babuuu.に一票と、ひとことメッセージを</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===== 締め ===== -->
+  <section class="last" id="last">
+    <p class="big" aria-hidden="true">THANK YOU</p>
+    <h2><em>babuuu.</em>に<br>あなたの一票を</h2>
+    <a class="vote" data-vote href="#">babuuu.に投票する<span class="arw">▶</span></a>
+    <p class="vote-note">投票は11月30日（月）09:59まで<br>投票すると最大10,000ポイントが10万名様に当たる！</p>
+  </section>
+
+  <!-- ===== 商品 ===== -->
+  <section class="items">
+    <div class="in">
+      <div class="head">
+        <span class="kicker">PICK UP</span>
+        <h2>babuuu.の<br>おすすめ</h2>
+        <p class="lead">はじめての方にも、ぜひ一度<br>使っていただきたいアイテムです</p>
+      </div>
+
+      <h3 class="sub-head"><span class="en">RANKING</span><b>人気ランキング TOP3</b></h3>
+      <div class="rank3">
+        <a class="rk" href="https://item.rakuten.co.jp/babuuu/bgoods-00107/" target="_blank" rel="noopener"><span class="ph"><span class="no">1</span><img src="images/bgoods-00107.jpg" alt="リッチェル ひんやりしないおふろマット N" loading="lazy"></span><div><h4>リッチェル ひんやりしないおふろマット N</h4><p class="price">4,400<small>円</small></p></div></a>
+        <a class="rk" href="https://item.rakuten.co.jp/babuuu/bgoods-00400/" target="_blank" rel="noopener"><span class="ph"><span class="no">2</span><img src="images/bgoods-00400.jpg" alt="リッチェル トイサポ 補助便座" loading="lazy"></span><div><h4>リッチェル トイサポ 補助便座</h4><p class="price">7,050<small>円</small></p></div></a>
+        <a class="rk" href="https://item.rakuten.co.jp/babuuu/bgoods-00210/" target="_blank" rel="noopener"><span class="ph"><span class="no">3</span><img src="images/bgoods-00210.jpg" alt="コンビ クルムーヴ ロング R129 エッグショック" loading="lazy"></span><div><h4>コンビ クルムーヴ ロング R129 エッグショック</h4><p class="price">54,900<small>円</small></p></div></a>
+      </div>
+      <p class="rank-nt">※2026年10月30日時点のショップ内ランキング</p>
+
+      <h3 class="sub-head mt"><span class="en">POPULAR ITEMS</span><b>人気のアイテム</b></h3>
+      <div class="grid">
+        <a class="it" href="https://item.rakuten.co.jp/babuuu/ergobaby-005/" target="_blank" rel="noopener"><span class="ph"><img src="images/ergobaby-005.jpg" alt="エルゴベビー オムニクラシック メッシュ" loading="lazy"></span><h4>エルゴベビー オムニクラシック メッシュ</h4><p class="price">19,800<small>円</small></p></a>
+        <a class="it" href="https://item.rakuten.co.jp/babuuu/bgoods-00120/" target="_blank" rel="noopener"><span class="ph"><img src="images/bgoods-00120.jpg" alt="リッチェル バウンシングシート N" loading="lazy"></span><h4>リッチェル バウンシングシート N</h4><p class="price">11,000<small>円</small></p></a>
+        <a class="it" href="https://item.rakuten.co.jp/babuuu/bgoods-00254/" target="_blank" rel="noopener"><span class="ph"><img src="images/bgoods-00254.jpg" alt="bcベビーケア 超厚手おしりふき" loading="lazy"></span><h4>bcベビーケア 超厚手おしりふき</h4><p class="price">4,380<small>円〜</small></p></a>
+        <a class="it" href="https://item.rakuten.co.jp/babuuu/name-sleeper-001/" target="_blank" rel="noopener"><span class="ph"><img src="images/name-sleeper-001.jpg" alt="名入れ スリーパー 2WAY グーグー" loading="lazy"></span><h4>名入れ スリーパー 2WAY グーグー</h4><p class="price">2,780<small>円〜</small></p></a>
+        <a class="it" href="https://item.rakuten.co.jp/babuuu/goods-809/" target="_blank" rel="noopener"><span class="ph"><img src="images/goods-809.jpg" alt="おむつケーキ ラクーシュパステル" loading="lazy"></span><h4>おむつケーキ ラクーシュパステル</h4><p class="price">9,900<small>円〜</small></p></a>
+        <a class="it" href="https://item.rakuten.co.jp/babuuu/tkd-smp-001/" target="_blank" rel="noopener"><span class="ph"><img src="images/tkd-smp-001.jpg" alt="sampo オーガニックバスポンチョ" loading="lazy"></span><h4>sampo オーガニックバスポンチョ</h4><p class="price">3,000<small>円〜</small></p></a>
+      </div>
+
+      <div class="links">
+        <a class="btn" href="https://www.rakuten.co.jp/babuuu/" target="_blank" rel="noopener">babuuu. トップへ</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- スマホ追従ボタン -->
+<div class="fixed" id="fixed"><a class="vote" data-vote href="#">babuuu.に投票する<span class="arw">▶</span></a></div>
+
+<script>
+(function(){
+  // ▼投票ページURL（ここだけ変えれば全ボタンに反映。s= は楽天のショップID 422856）
+  var VOTE_URL = 'https://award.rakuten.co.jp/?menu=shop&aid=101&l-id=SOY_fromshop&s=422856';
+  document.querySelectorAll('[data-vote]').forEach(function(a){
+    a.href = VOTE_URL;
+    a.target = '_blank';
+    a.rel = 'noopener';
+  });
+
+  // 投票ボタンのシャイン（ランダム間隔）
+  function shine(){
+    document.querySelectorAll('.vote').forEach(function(b){
+      b.classList.remove('bb-shine-play');
+      void b.offsetWidth;
+      b.classList.add('bb-shine-play');
+    });
+    setTimeout(shine, 2800 + Math.random() * 3400);
+  }
+  setTimeout(shine, 1200);
+
+  // スタンプを押した瞬間に広がる、ハートと星
+  function icon(svg){ return 'url("data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">' + svg + '</svg>') + '")'; }
+  var ICONS = [
+    icon('<path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.7 4.5c2.2 0 3.6 1.3 5.3 3.2 1.7-1.9 3.1-3.2 5.3-3.2 3.7 0 5.8 3.9 4.3 7.3C19.5 16.4 12 21 12 21z" fill="#FF4C86"/>'),
+    icon('<path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7L12 17.3 5.8 20.9l1.6-7L2 9.2l7.1-.6z" fill="#FFC300"/>'),
+    icon('<path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7L12 17.3 5.8 20.9l1.6-7L2 9.2l7.1-.6z" fill="#1E9FD6"/>')
+  ];
+  document.querySelectorAll('[data-pops]').forEach(function(box){
+    var n = +box.dataset.pops;
+    for (var i = 0; i < n; i++) {
+      var p = document.createElement('i'), a = Math.PI * (1.05 + 0.9 * (i + Math.random() * 0.5 - 0.25) / (n - 1)), r = 95 + Math.random() * 60;
+      p.style.cssText = '--img:' + ICONS[i % ICONS.length] + ';--sz:' + (18 + Math.random() * 12) + 'px;--bx:' + (Math.cos(a) * r) + 'px;--by:' + (Math.sin(a) * r * 0.7) + 'px;--br:' + (Math.random() * 40 - 20) + 'deg';
+      box.appendChild(p);
+    }
+  });
+
+  // FVを過ぎたら追従ボタン表示
+  // 締めの投票ボタンが見えている間は隠す
+  var fixed = document.getElementById('fixed'), shown = {};
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ shown[e.target.id] = e.isIntersecting; });
+    fixed.classList.toggle('on', !shown.fv && !shown.last);
+  });
+  io.observe(document.getElementById('fv'));
+  io.observe(document.getElementById('last'));
+})();
+</script>
+</body>
+</html>
