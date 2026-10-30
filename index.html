@@ -93,33 +93,33 @@ a{color:inherit;text-decoration:none}
 .stage{position:relative;z-index:2;height:300px;margin-top:4px}
 .ballot{position:absolute;left:50%;top:56px;width:250px;height:168px;margin-left:-125px;background:#fff;border-radius:14px;box-shadow:0 14px 30px rgba(24,22,19,.12),0 0 0 1.5px var(--ink);animation:card 5s ease-in-out infinite}
 .ballot .bl-top{display:flex;justify-content:space-between;align-items:center;height:34px;padding:0 16px;border-bottom:1.5px dashed var(--line);font-family:var(--en);font-weight:500;font-size:12px;letter-spacing:.16em}
-.ballot .bl-top i{font-style:normal;color:var(--blue)}
+.ballot .bl-top i{font-style:normal;color:var(--blue);margin-left:6px}
 .ballot .to{position:absolute;left:20px;top:39px;font-size:11px;line-height:1.3;font-weight:500;color:var(--ink-2);letter-spacing:.04em}
 /* 罫線と、えんぴつに合わせて左から現れるコメント（全角16px＝1文字16px） */
 .ballot .ln{position:absolute;left:18px;right:18px;height:0;border-bottom:1.5px dashed rgba(24,22,19,.18)}
 .ballot .ln.a{top:78px}
 .ballot .ln.b{top:118px}
-.ballot .msg{position:absolute;left:20px;font-size:16px;font-weight:700;line-height:24px;letter-spacing:0;white-space:nowrap;clip-path:inset(0 100% 0 0)}
+.ballot .msg{position:absolute;left:20px;font-size:15px;font-weight:700;line-height:24px;letter-spacing:0;white-space:nowrap;clip-path:inset(0 100% 0 0)}
 .ballot .msg.a{top:52px;color:var(--blue);animation:writeA 5s linear infinite}
 .ballot .msg.b{top:92px;color:var(--pink);animation:writeB 5s linear infinite}
 /* えんぴつ：先端(10,104)を文字の右端に沿わせて動かす */
 .pencil{position:absolute;left:0;top:0;width:20px;height:110px;transform-origin:10px 104px;opacity:0;animation:pencil 5s linear infinite;filter:drop-shadow(2px 4px 4px rgba(0,0,0,.18))}
-.stamp{position:absolute;left:172px;top:62px;width:104px;height:104px;border-radius:50%;border:4px solid var(--pink);color:var(--pink);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;background:rgba(255,255,255,.7);opacity:0;animation:stamp 5s cubic-bezier(.3,.6,.4,1) infinite}
+.stamp{position:absolute;left:176px;top:-26px;width:104px;height:104px;border-radius:50%;border:4px solid var(--pink);color:var(--pink);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;background:rgba(255,255,255,.7);opacity:0;animation:stamp 5s cubic-bezier(.3,.6,.4,1) infinite}
 .stamp::before{content:"";position:absolute;inset:4px;border-radius:50%;border:1.5px solid var(--pink)}
 .stamp b{font-family:var(--en);font-weight:600;font-size:17px;line-height:1;letter-spacing:.08em;text-align:center}
 .stamp small{font-family:var(--en);font-weight:500;font-size:10px;letter-spacing:.14em}
 .stamp i{font-style:normal;font-size:16px;line-height:1}
-.pops{position:absolute;left:224px;top:114px;width:0;height:0;z-index:3}
+.pops{position:absolute;left:228px;top:26px;width:0;height:0;z-index:3}
 .pops i{position:absolute;left:0;top:0;width:var(--sz,22px);height:var(--sz,22px);margin:calc(var(--sz,22px) / -2) 0 0 calc(var(--sz,22px) / -2);background:var(--img) center/contain no-repeat;opacity:0;animation:pop 5s linear infinite}
 @keyframes card{0%{opacity:0;transform:translateY(12px)}6%,49%{opacity:1;transform:translateY(0) scale(1)}51%{transform:scale(.97,.95)}55%{transform:scale(1)}90%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(1)}}
-@keyframes writeA{0%,11%{clip-path:inset(0 100% 0 0)}24%,100%{clip-path:inset(0 0 0 0)}}
-@keyframes writeB{0%,27%{clip-path:inset(0 100% 0 0)}37%,100%{clip-path:inset(0 0 0 0)}}
+@keyframes writeA{0%,11%{clip-path:inset(0 100% 0 0)}20%,100%{clip-path:inset(0 0 0 0)}}
+@keyframes writeB{0%,23%{clip-path:inset(0 100% 0 0)}38%,100%{clip-path:inset(0 0 0 0)}}
 @keyframes pencil{
   0%,6%{opacity:0;transform:translate(140px,-144px) rotate(32deg)}
   11%{opacity:1;transform:translate(10px,-32px) rotate(32deg)}
-  24%{transform:translate(154px,-32px) rotate(32deg)}
-  27%{transform:translate(10px,8px) rotate(32deg)}
-  37%{transform:translate(122px,8px) rotate(32deg);opacity:1}
+  20%{transform:translate(115px,-32px) rotate(32deg)}
+  23%{transform:translate(10px,8px) rotate(32deg)}
+  38%{transform:translate(205px,8px) rotate(32deg);opacity:1}
   44%,100%{opacity:0;transform:translate(190px,-84px) rotate(32deg)}
 }
 @keyframes stamp{0%,43%{opacity:0;transform:translateY(-80px) scale(1.6)}50%{opacity:1;transform:translateY(0) scale(.93)}53%{transform:scale(1.03)}57%{transform:scale(1)}90%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(1)}}
@@ -299,11 +299,11 @@ a{color:inherit;text-decoration:none}
     </div>
     <div class="stage" aria-hidden="true">
       <div class="ballot">
-        <div class="bl-top"><span>MESSAGE</span><i>SOY 2026</i></div>
+        <div class="bl-top"><span>MESSAGE <i>SOY 2026</i></span></div>
         <p class="to">babuuu.への応援メッセージ</p>
         <span class="ln a"></span><span class="ln b"></span>
-        <p class="msg a">いつもありがとう！</p>
-        <p class="msg b">応援してます！</p>
+        <p class="msg a">応援してます！</p>
+        <p class="msg b">もっと品数増やしてほしい！</p>
         <svg class="pencil" viewBox="0 0 20 110"><rect x="0" y="0" width="20" height="14" rx="3" fill="#FF4C86"/><rect x="0" y="14" width="20" height="4" fill="#d9d4cc"/><rect x="0" y="18" width="20" height="62" fill="#FFC300"/><rect x="7" y="18" width="6" height="62" fill="#ffd54d"/><polygon points="0,80 20,80 10,104" fill="#f1d9b5"/><polygon points="6.5,96 13.5,96 10,104" fill="#181613"/></svg>
         <div class="stamp"><i>♥</i><b>THANK<br>YOU</b><small>babuuu.</small></div>
         <div class="pops" data-pops="7"></div>
